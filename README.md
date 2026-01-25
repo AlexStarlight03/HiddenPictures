@@ -4,13 +4,30 @@
 
 ## Pour installer:
 
-### Sur Powershell :
+Assurez d'abord que Java est installé sur votre machine:
+    ```
+    java -version
+    ```
+Si Java n'est pas installé, ou que la version est antérieure à la version 21, installez Java 21 ou plus et suivant les instructions sur le lien suivant selon votre OS:
+https://www.oracle.com/ca-fr/java/technologies/downloads/
+
+
+### Sur terminal Powershell :
 
 - Clonez le projet sur votre ordinateur
 - Rendez-vous à la racine du projet
 - Exécutez la commande suivante :
     ```
     .\mvnw.cmd javafx:run 
+    ```
+
+### Sur terminal Bash :
+
+- Clonez le projet sur votre ordinateur
+- Rendez-vous à la racine du projet
+- Exécutez la commande suivante :
+    ```
+    ./mvnw javafx:run 
     ```
 
 ### Sur IntelliJ :
