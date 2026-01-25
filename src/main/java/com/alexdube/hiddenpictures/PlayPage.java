@@ -1,6 +1,15 @@
 package com.alexdube.hiddenpictures;
 
-import javafx.animation.*;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -10,15 +19,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
-
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
 
 
 public class PlayPage implements Initializable {
@@ -223,7 +226,7 @@ public class PlayPage implements Initializable {
         errorSound.play();
         error += 1;
         errorLabel.setText((error + " / " + maxError));
-        if (error == maxError) {
+        if (error > maxError) {
             showLoseMessage();
         }
     }
