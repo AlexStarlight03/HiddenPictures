@@ -1,6 +1,6 @@
 
 # *Jeu d'images cachées à thème de Gundam*
-
+\* *À noter, le jeu a actuellement un format de fenêtre fixe, fait pour un écran d'au moins 16".*
 
 ## Pour installer:
 
