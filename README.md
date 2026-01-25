@@ -4,11 +4,11 @@
 
 ## Pour installer:
 
-Assurez d'abord que Java est installé sur votre machine:
+Tout d'abord, assurez-vous que Java est installé sur votre machine avec cette commande:
     ```
     java -version
     ```
-<br /> <br /> Si Java n'est pas installé, ou que la version est antérieure à la version 21, installez Java 21 ou plus et suivant les instructions sur le lien suivant selon votre OS: <br />
+<br /> <br /> Si Java n'est pas installé, ou que vous avez une version antérieure à la version 21, installez Java 21 ou plus et suivez les instructions sur le lien suivant selon votre OS: <br />
 https://www.oracle.com/ca-fr/java/technologies/downloads/
 
 
