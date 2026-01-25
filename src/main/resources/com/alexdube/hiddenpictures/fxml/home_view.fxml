@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="869.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexdube.hiddenpictures.HomePage">
+   <children>
+      <ImageView fitHeight="1024.0" fitWidth="1536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/space_background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="kirakira" fitHeight="1024.0" fitWidth="1536.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/kirakira.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="mainMenu" alignment="TOP_CENTER" layoutX="259.0" layoutY="199.0" prefHeight="698.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="140.0" prefWidth="635.0" styleClass="title_label" stylesheets="@../styles/styles.css" text="Cherche &amp; Trouve" textAlignment="CENTER">
+               <font>
+                  <Font name="Exo 2 Regular" size="74.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7058823704719543" green="0.8784313797950745" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7215686440467834" green="0.3607843220233917" blue="0.7450980544090271" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="18.0" top="18.0" />
+               </padding>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="267.0" layoutY="10.0" prefHeight="65.0" prefWidth="253.0" styleClass="subtitle_label" stylesheets="@../styles/styles.css" text="Édition Gundam" textAlignment="CENTER" textFill="#b5e1ff">
+               <font>
+                  <Font name="Exo 2 Regular" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="75.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="6.0" left="18.0" right="18.0" top="6.0" />
+               </padding>
+            </Label>
+            <Button fx:id="play_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handlePlay" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="JOUER" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Exo 2 Regular" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="about_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleAbout" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="À PROPOS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Exo 2 Regular" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="creator_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleCreator" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="CRÉATRICE" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Exo 2 Regular" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

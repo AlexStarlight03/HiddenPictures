@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="869.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexdube.hiddenpictures.CreatorPage">
+   <children>
+      <ImageView fx:id="kirakira" fitHeight="1024.0" fitWidth="1536.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/kirakira.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="mainBox" alignment="TOP_CENTER" layoutX="259.0" layoutY="182.0" prefHeight="682.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="376.0" styleClass="project_label" stylesheets="@../styles/styles.css" text="Créatrice" textAlignment="CENTER">
+               <font>
+                  <Font name="Exo 2 Regular" size="74.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7058823704719543" green="0.8784313797950745" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7215686440467834" green="0.3607843220233917" blue="0.7450980544090271" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="18.0" top="18.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="450.0" styleClass="subtitle_label" stylesheets="@../styles/styles.css" text="Alexandrine Dubé" textAlignment="CENTER" textFill="#b5e1ff">
+                     <font>
+                        <Font name="Exo 2 Regular" size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="6.0" left="18.0" right="18.0" top="6.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/avatar.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="527.0" styleClass="subtitle_label" stylesheets="@../styles/styles.css" text="Date de création : 24 janvier 2026" textAlignment="CENTER" textFill="#b5e1ff">
+               <font>
+                  <Font name="Exo 2 Regular" size="30.0" />
+               </font>
+               <padding>
+                  <Insets bottom="6.0" left="18.0" right="18.0" top="6.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="255.0" prefWidth="568.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Inspiré par mes séries Gundam favorites, The Witch From Mercury et Gquuuuux,  ce jeu de Cherche &amp; Trouve cache des classiques de Gundam à travers les années!\nTechnologies utilisées :- Java 21- JavaFX- IntelliJ IDEA- SceneBuilder- ChatGPT pour la génération d'images" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Exo 2 Regular" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="home_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleReturn" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="Retour" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Exo 2 Regular" size="25.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+         </padding>
+      </Button>
+   </children>
+</AnchorPane>
