@@ -20,7 +20,7 @@
             <Image url="@../images/kirakira.png" />
          </image>
       </ImageView>
-      <VBox fx:id="mainBox" alignment="TOP_CENTER" layoutX="259.0" layoutY="182.0" prefHeight="682.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
+      <VBox fx:id="mainBox" alignment="TOP_CENTER" layoutX="259.0" layoutY="97.0" prefHeight="802.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="376.0" styleClass="project_label" stylesheets="@../styles/styles.css" text="Créatrice" textAlignment="CENTER">
                <font>
@@ -83,7 +83,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="255.0" prefWidth="568.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Inspiré par mes séries Gundam favorites, The Witch From Mercury et Gquuuuux,  ce jeu de Cherche &amp; Trouve cache des classiques de Gundam à travers les années!\nTechnologies utilisées :- Java 21- JavaFX- IntelliJ IDEA- SceneBuilder- ChatGPT pour la génération d'images" textFill="WHITE" wrapText="true">
+            <Label prefHeight="366.0" prefWidth="568.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Inspiré par mes séries Gundam favorites, The Witch From Mercury et Gquuuuux,  ce jeu de Cherche &amp; Trouve cache des classiques de Gundam à travers les années!&#10;&#10;Technologies utilisées :              &#10;&#9;- Java 21              &#10;&#9;- JavaFX              &#10;&#9;- IntelliJ IDEA              &#10;&#9;- SceneBuilder              &#10;&#9;- ChatGPT pour la génération d'images" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Exo 2 Regular" size="18.0" />
                </font>

@@ -19,17 +19,12 @@
             <Image url="@../images/kirakira.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="276.0" fitWidth="162.0" layoutX="135.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="276.0" fitWidth="162.0" layoutX="136.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/amuro.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="133.0" fitWidth="100.0" layoutX="1229.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/haro.png" />
-         </image>
-      </ImageView>
-      <VBox fx:id="mainBox" alignment="TOP_CENTER" layoutX="259.0" layoutY="115.0" prefHeight="820.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
+      <VBox fx:id="mainBox" alignment="TOP_CENTER" layoutX="259.0" layoutY="88.0" prefHeight="849.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="133.0" prefWidth="413.0" styleClass="project_label" stylesheets="@../styles/styles.css" text="À propos" textAlignment="CENTER">
                <font>
@@ -58,9 +53,9 @@
                   <Insets bottom="18.0" top="18.0" />
                </padding>
             </Label>
-            <Label prefHeight="246.0" prefWidth="956.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Cherche &amp; Trouve - Édition Gundam est un jeu d'observation. Le but est de trouver les 10 objets cachés dans la scène qui vous sera présentée. Vous pourrez retrouver les objets à trouver à droite de l'écran. Une fois trouvé, ils deviendront sombres. Vous pouvez voir votre progression et votre score dans le bas de la page, et le temps qu'il vous reste pour réussir!" textFill="WHITE" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="246.0" prefWidth="956.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Cherche &amp; Trouve - Édition Gundam est un jeu d'observation.&#10;Le but est de trouver les 10 objets cachés dans la scène qui vous sera présentée. Vous pourrez retrouver les objets à trouver à droite de l'écran. Une fois trouvé, ils deviendront sombres. Vous pouvez voir votre progression et votre score dans le bas de la page, et le temps qu'il vous reste pour réussir!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Exo 2 Regular" size="18.0" />
+                  <Font name="Exo 2 Regular" size="20.0" />
                </font>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -80,9 +75,9 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="30.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="189.0" prefWidth="956.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Cliquez sur les objets cachés dans l'image qui vous sera présentée. Chaque objet trouvé s'illuminera, avec des étincelles, et s'assoubrira dans votre liste de recherche à droite. Retrouvez les 10 objets avant que le temps en bas à gauche ne tombe à 0 pour gagner !" textFill="WHITE" wrapText="true">
+            <Label prefHeight="295.0" prefWidth="956.0" styleClass="projectDesc_label" stylesheets="@../styles/styles.css" text="Cliquez sur les objets cachés dans l'image qui vous sera présentée. &#10;Chaque objet trouvé s'illuminera, avec des étincelles, et s'assoubrira dans votre liste de recherche à droite. &#10;Retrouvez les 10 objets avant que le temps en bas à gauche ne tombe à 0 pour gagner ! &#10;De plus, vous ne pourrez pas furieusement cliquer pour réussir, vous pouvez accumuler jusqu'à 3 clics erronés, un autre et ce sera partie perdue!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Exo 2 Regular" size="19.0" />
+                  <Font name="Exo 2 Regular" size="20.0" />
                </font>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -101,5 +96,10 @@
             <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
          </padding>
       </Button>
+      <ImageView fitHeight="133.0" fitWidth="100.0" layoutX="1229.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/haro.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
