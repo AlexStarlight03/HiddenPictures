@@ -57,6 +57,8 @@ public class HomePage implements Initializable {
         login_btn.setVisible(!loggedIn);
         register_btn.setVisible(!loggedIn);
         logout_btn.setVisible(loggedIn);
+        profil_btn.setVisible(loggedIn);
+        play_btn.setVisible(loggedIn);
         userInfoLabel.setVisible(loggedIn);
 
         if (loggedIn) {
