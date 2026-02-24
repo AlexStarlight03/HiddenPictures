@@ -55,4 +55,8 @@ public class Profil implements Initializable {
             messageLabel.setText("Aucune modification.");
         }
     }
+
+    @FXML private void handleReturn() {
+        HiddenObjectsApp.switchPage("fxml/home_view.fxml");
+    }
 }
