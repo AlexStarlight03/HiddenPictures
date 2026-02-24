@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.alexdube.hiddenpictures.Profil"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox layoutX="50" layoutY="30" spacing="18">
+            <children>
+                <Label fx:id="usernameLabel" text="Pseudo : " />
+                <Label fx:id="gamesCountLabel" text="Nombre de parties : " />
+                <Label fx:id="bestScoreLabel" text="Meilleur score : " />
+                <Label fx:id="avgScoreLabel" text="Score moyen : " />
+                <Separator />
+                <Label text="Modifier le profil :" />
+                <TextField fx:id="usernameField" promptText="Nouveau pseudo" />
+                <PasswordField fx:id="passwordField" promptText="Nouveau mot de passe" />
+                <Button fx:id="updateBtn" text="Mettre à jour" onAction="#handleUpdate" />
+                <Label fx:id="messageLabel" text="" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

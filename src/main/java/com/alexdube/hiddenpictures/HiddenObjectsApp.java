@@ -1,5 +1,6 @@
 package com.alexdube.hiddenpictures;
 
+import com.alexdube.hiddenpictures.util.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,6 +23,7 @@ public class HiddenObjectsApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        DatabaseConnection.initDatabase();
         Font.loadFont(getClass().getResourceAsStream("/fonts/MyFont.ttf"), 10);
         URL music1Path = getClass().getResource("/com/alexdube/hiddenpictures/sounds/Plazma.mp3");
         if (music1Path == null) {

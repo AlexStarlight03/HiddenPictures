@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -26,6 +27,46 @@
       </ImageView>
       <VBox fx:id="mainMenu" alignment="TOP_CENTER" layoutX="259.0" layoutY="199.0" prefHeight="698.0" prefWidth="1020.0" stylesheets="@../styles/styles.css">
          <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="register_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRegister" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="INSCRIPTION" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Exo 2 Regular" size="25.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="login_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleLogin" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="CONNEXION" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Exo 2 Regular" size="25.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="logout_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLogout" styleClass="menu-btn" text="DÉCONNEXION" textAlignment="CENTER" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Exo 2 Regular" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="140.0" prefWidth="635.0" styleClass="title_label" stylesheets="@../styles/styles.css" text="Cherche &amp; Trouve" textAlignment="CENTER">
                <font>
                   <Font name="Exo 2 Regular" size="74.0" />
@@ -75,6 +116,14 @@
                   <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
                </padding>
             </Button>
+            <Button fx:id="leaderboard_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLeaderboard" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="LEADERBOARD" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Exo 2 Regular" size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
+               </padding>
+            </Button>
             <Button fx:id="about_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleAbout" styleClass="menu-btn" stylesheets="@../styles/styles.css" text="À PROPOS" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Exo 2 Regular" size="25.0" />
@@ -97,6 +146,17 @@
                   <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
                </padding>
             </Button>
+            <Label fx:id="userInfoLabel" alignment="CENTER" prefHeight="31.0" prefWidth="871.0" styleClass="subtitle_label" text="" textFill="#b5e1ff" visible="false">
+               <font>
+                  <Font name="Exo 2 Regular" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
          </children>
       </VBox>
    </children>
