@@ -37,7 +37,12 @@ public class Profil implements Initializable {
         usernameLabel.setText("Pseudo : " + username);
         usernameField.setText(username);
         gamesCountLabel.setText("Nombre de parties : " + apiService.getGamesCount(userId));
-        bestScoreLabel.setText("Meilleur score : " + apiService.getBestScore(userId));
+        ApiService.BestScore bestScore = apiService.getBestScore(userId);
+        if (bestScore != null) {
+            bestScoreLabel.setText("Meilleur score : " + bestScore.score + " (" + bestScore.date + ")");
+        } else {
+            bestScoreLabel.setText("Meilleur score : Aucun score enregistré");
+        }
         avgScoreLabel.setText("Score moyen : " + String.format("%.2f", apiService.getAvgScore(userId)));
     }
 
