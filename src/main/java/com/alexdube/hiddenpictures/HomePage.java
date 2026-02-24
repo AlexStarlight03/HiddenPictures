@@ -26,6 +26,7 @@ public class HomePage implements Initializable {
     @FXML private Button about_btn;
     @FXML private Button creator_btn;
     @FXML private Button leaderboard_btn;
+    @FXML private Button profil_btn;
     @FXML private Button register_btn;
     @FXML private Button login_btn;
     @FXML private Button logout_btn;
@@ -92,6 +93,11 @@ public class HomePage implements Initializable {
     @FXML
     private void handleCreator() {
         HiddenObjectsApp.switchPage("fxml/creator_view.fxml");
+    }
+
+    @FXML
+    private void handleProfil() {
+        HiddenObjectsApp.switchPage("fxml/profil_view.fxml");
     }
 
     @FXML
