@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import com.alexdube.hiddenpictures.controller.GameController;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
@@ -26,61 +27,36 @@ import javafx.util.Duration;
 
 public class PlayPage implements Initializable {
 
-    @FXML
-    private ImageView hidden01;
-    @FXML
-    private ImageView hidden02;
-    @FXML
-    private ImageView hidden03;
-    @FXML
-    private ImageView hidden04;
-    @FXML
-    private ImageView hidden05;
-    @FXML
-    private ImageView hidden06;
-    @FXML
-    private ImageView hidden07;
-    @FXML
-    private ImageView hidden08;
-    @FXML
-    private ImageView hidden09;
-    @FXML
-    private ImageView hidden10;
-    @FXML
-    private ImageView icon01;
-    @FXML
-    private ImageView icon02;
-    @FXML
-    private ImageView icon03;
-    @FXML
-    private ImageView icon04;
-    @FXML
-    private ImageView icon05;
-    @FXML
-    private ImageView icon06;
-    @FXML
-    private ImageView icon07;
-    @FXML
-    private ImageView icon08;
-    @FXML
-    private ImageView icon09;
-    @FXML
-    private ImageView icon10;
+    @FXML private ImageView hidden01;
+    @FXML private ImageView hidden02;
+    @FXML private ImageView hidden03;
+    @FXML private ImageView hidden04;
+    @FXML private ImageView hidden05;
+    @FXML private ImageView hidden06;
+    @FXML private ImageView hidden07;
+    @FXML private ImageView hidden08;
+    @FXML private ImageView hidden09;
+    @FXML private ImageView hidden10;
+    @FXML private ImageView icon01;
+    @FXML private ImageView icon02;
+    @FXML private ImageView icon03;
+    @FXML private ImageView icon04;
+    @FXML private ImageView icon05;
+    @FXML private ImageView icon06;
+    @FXML private ImageView icon07;
+    @FXML private ImageView icon08;
+    @FXML private ImageView icon09;
+    @FXML private ImageView icon10;
 
-    @FXML
-    private ProgressBar progressBar;
+    @FXML private ProgressBar progressBar;
 
-    @FXML
-    private VBox winMessageBox;
-    @FXML
-    private VBox loseMessageBox;
+    @FXML private VBox winMessageBox;
+    @FXML private VBox loseMessageBox;
 
-    @FXML
-    private Label timerLabel;
+    @FXML private Label timerLabel;
 
     private Timeline timeline;
     private int timeSeconds = 80;
-
 
     public void startTime() {
         timerLabel.setText(formatTime(timeSeconds));
@@ -105,9 +81,10 @@ public class PlayPage implements Initializable {
         return String.format("%02d:%02d", min, sec);
     }
 
-
     public void showWinMessage() {
+        timeline.stop();
         if (!loseMessageBox.isVisible()) {
+            saveGameScore(true);
             winMessageBox.setVisible(true);
             winMessageBox.toFront();
         }
@@ -115,11 +92,22 @@ public class PlayPage implements Initializable {
 
     public void showLoseMessage() {
         if (!winMessageBox.isVisible()) {
+            saveGameScore(false);
             loseMessageBox.setVisible(true);
             loseMessageBox.toFront();
         }
     }
 
+    private void saveGameScore(boolean win) {
+        int foundPoints = (int) score * 10;
+        int timeBonus = Math.max(0, timeSeconds * 2);
+        int mistakePenalty = error * 5;
+        int finalScore = foundPoints + timeBonus + mistakePenalty;
+        if (finalScore < 0) finalScore = 0;
+
+       int userId = Session.getCurrentUser() != null ? Session.getCurrentUser().getId() : 0;
+       GameController.addGame(userId, finalScore);
+    }
 
     @FXML
     public void handleBackHome() {
@@ -134,8 +122,7 @@ public class PlayPage implements Initializable {
 
     private float score = 0;
 
-    @FXML
-    private Label scoreLabel;
+    @FXML private Label scoreLabel;
 
     private final int total_hidden = 10;
 
@@ -145,9 +132,7 @@ public class PlayPage implements Initializable {
 
     private int error = 0;
 
-    @FXML
-    private Label errorLabel;
-
+    @FXML private Label errorLabel;
 
     @Override
     public void initialize(java.net.URL location, ResourceBundle resources) {
@@ -231,11 +216,9 @@ public class PlayPage implements Initializable {
         }
     }
 
-    @FXML
-    private Button home_btn;
+    @FXML private Button home_btn;
 
-    @FXML
-    private void handleReturn() {
+    @FXML private void handleReturn() {
         HiddenObjectsApp.switchPage("fxml/home_view.fxml");
     }
 
