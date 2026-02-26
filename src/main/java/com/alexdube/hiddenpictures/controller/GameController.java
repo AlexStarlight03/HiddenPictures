@@ -1,7 +1,7 @@
 package com.alexdube.hiddenpictures.controller;
 
 import com.alexdube.hiddenpictures.model.Game;
-import com.alexdube.hiddenpictures.util.DatabaseConnection;
+import com.alexdube.hiddenpictures.service.ApiClient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,7 +39,7 @@ public class GameController implements Initializable {
     public static void addGame(int userId, int score ) {
         try {
             String sql = "INSERT INTO games (user_id, score, played_at) VALUES (?, ?, ?)";
-            try (Connection conn = DatabaseConnection.getConnection();
+            try (Connection conn = ApiClient.getConnection();
                  PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, userId);
                 stmt.setInt(2, score);
@@ -60,7 +60,7 @@ public class GameController implements Initializable {
     public static void loadGames() {
         gameList.clear();
         String sql = "SELECT * FROM games ORDER BY played_at";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {

@@ -100,8 +100,11 @@ public class PlayPage implements Initializable {
 
     private void saveGameScore(boolean win) {
         int foundPoints = (int) score * 10;
-        int timeBonus = Math.max(0, timeSeconds * 2);
         int mistakePenalty = error * 5;
+        int timeBonus = 0;
+        if (win) {
+            timeBonus = Math.max(0, timeSeconds * 2);
+        }
         int finalScore = foundPoints + timeBonus + mistakePenalty;
         if (finalScore < 0) finalScore = 0;
 

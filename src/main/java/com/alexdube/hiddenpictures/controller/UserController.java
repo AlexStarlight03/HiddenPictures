@@ -3,7 +3,7 @@ package com.alexdube.hiddenpictures.controller;
 import com.alexdube.hiddenpictures.HiddenObjectsApp;
 import com.alexdube.hiddenpictures.Session;
 import com.alexdube.hiddenpictures.model.User;
-import com.alexdube.hiddenpictures.util.DatabaseConnection;
+import com.alexdube.hiddenpictures.service.ApiClient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -48,7 +48,7 @@ public class UserController implements Initializable {
         String hashedPassword = hashPassword(password);
 
         String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             stmt.setString(2, hashedPassword);
@@ -77,7 +77,7 @@ public class UserController implements Initializable {
     private void loadUsers() {
         userList.clear();
         String sql = "SELECT * FROM users";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
@@ -107,7 +107,7 @@ public class UserController implements Initializable {
         }
         String hashedPassword = hashPassword(password);
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
              stmt.setString(1, username);
              stmt.setString(2, hashedPassword); // Hash in production!

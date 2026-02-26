@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alexdube.hiddenpictures.model.LeaderboardEntry;
-import com.alexdube.hiddenpictures.util.DatabaseConnection;
 
 public class ApiService {
 
     public int getGamesCount(int userId) {
         String sql = "SELECT COUNT(*) FROM games WHERE user_id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
@@ -36,7 +35,7 @@ public class ApiService {
 
     public BestScore getBestScore(int userId) {
         String sql = "SELECT score, played_at FROM games WHERE user_id = ? ORDER BY score DESC, played_at ASC LIMIT 1";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
@@ -53,7 +52,7 @@ public class ApiService {
 
     public double getAvgScore(int userId) {
         String sql = "SELECT AVG(score) FROM games WHERE user_id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
@@ -75,7 +74,7 @@ public class ApiService {
             sql.append("password = ?");
         }
         sql.append(" WHERE id = ?");
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
             int idx = 1;
             if (updateUsername) stmt.setString(idx++, newUsername);
@@ -102,7 +101,7 @@ public class ApiService {
 
     public boolean saveGameScore(int userId, int score) {
         String sql = "INSERT INTO games (user_id, score, played_at) VALUES (?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userId);
             stmt.setInt(2, score);
@@ -123,7 +122,7 @@ public class ApiService {
             ORDER BY %s
             LIMIT 10
         """, orderBy);
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             int rank = 1;
@@ -150,7 +149,7 @@ public class ApiService {
             WHERE u.username = ?
             ORDER BY g.score DESC, g.played_at ASC
         """;
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = ApiClient.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();

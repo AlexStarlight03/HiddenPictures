@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import com.alexdube.hiddenpictures.service.ApiClient;
 
 public class DatabaseConnection {
 
@@ -16,18 +17,6 @@ public class DatabaseConnection {
 
     private static Connection connection;
 
-    public static Connection getConnection(){
-        try{
-            if (connection == null || connection.isClosed()) {
-                connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                System.out.println("Connexion etablie avec succes" + connection);
-            }
-        } catch(SQLException e) {
-            System.out.println("Erreur de connexion a la base de donnee" + e + connection);
-            e.printStackTrace();
-        }
-        return connection;
-    }
 
     public static void initDatabase() {
         // On parle ici de LDD - Language Definition des Donnees _ On utilise les statements
@@ -39,7 +28,7 @@ public class DatabaseConnection {
                 date_inscription TIMESTAMP DEFAULT NOW()
             )
             """;
-        try (Statement stmt = getConnection().createStatement()) {
+        try (Statement stmt = ApiClient.getConnection().createStatement()) {
             stmt.execute(createTableUser);
             System.out.println("Table Users creee avec success");
         } catch (SQLException e) {
@@ -54,7 +43,7 @@ public class DatabaseConnection {
                 temps_partie INT
             )
             """;
-        try (Statement stmt = getConnection().createStatement()) {
+        try (Statement stmt = ApiClient.getConnection().createStatement()) {
             stmt.execute(createTableGames);
             System.out.println("Table Games creee avec success");
         } catch (SQLException e) {
