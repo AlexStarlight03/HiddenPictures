@@ -19,8 +19,7 @@ public class GameController implements Initializable {
     private final static ObservableList<Game> gameList = FXCollections.observableArrayList();
 
     @FXML private TableView<Game> tableView;
-    @FXML
-    private TableColumn<Game, Integer> idCol;
+    @FXML private TableColumn<Game, Integer> idCol;
     @FXML private TableColumn<Game, Integer> userIdCol;
     @FXML private TableColumn<Game, Integer> scoreCol;
     @FXML private TableColumn<Game, LocalDateTime> playedAtCol;
