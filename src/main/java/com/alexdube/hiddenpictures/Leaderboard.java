@@ -33,22 +33,6 @@ public class Leaderboard implements Initializable {
 
         loadLeaderboard("g.score DESC, g.played_at ASC");
 
-        leaderboardTable.getSortOrder().addListener((javafx.collections.ListChangeListener<TableColumn<LeaderboardEntry, ?>>) change -> {
-            if (!leaderboardTable.getSortOrder().isEmpty()) {
-                TableColumn<LeaderboardEntry, ?> sortedCol = leaderboardTable.getSortOrder().get(0);
-                String orderBy;
-                if (sortedCol == usernameCol) {
-                    orderBy = "u.username ASC";
-                } else if (sortedCol == scoreCol) {
-                    orderBy = "g.score DESC";
-                } else if (sortedCol == dateCol) {
-                    orderBy = "g.played_at DESC";
-                } else {
-                    orderBy = "g.score DESC, g.played_at ASC";
-                }
-                loadLeaderboard(orderBy);
-            }
-        });
     }
     private void loadLeaderboard(String orderBy) {
         leaderboardList.clear();
