@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -245,8 +247,9 @@ public class ApiService {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 int score = rs.getInt("score");
-                String date = rs.getTimestamp("played_at").toLocalDateTime().toString();
-                return new BestScore(score, date);
+                LocalDateTime date = rs.getTimestamp("played_at").toLocalDateTime();
+                String strDate = getDateString(date);
+                return new BestScore(score, strDate);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -305,6 +308,11 @@ public class ApiService {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public String getDateString(LocalDateTime date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return date.format(formatter);
     }
 
 }

@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="869.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexdube.hiddenpictures.Leaderboard">
+<AnchorPane prefHeight="869.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexdube.hiddenpictures.controller.Leaderboard">
     <children>
         <ImageView fitHeight="1024.0" fitWidth="1536.0" pickOnBounds="true">
             <image>

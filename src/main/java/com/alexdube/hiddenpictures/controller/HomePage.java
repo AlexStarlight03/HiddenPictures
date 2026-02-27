@@ -1,8 +1,11 @@
 package com.alexdube.hiddenpictures.controller;
 
+import java.util.ResourceBundle;
+
 import com.alexdube.hiddenpictures.HiddenObjectsApp;
 import com.alexdube.hiddenpictures.model.User;
 import com.alexdube.hiddenpictures.service.ApiService;
+
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
@@ -13,8 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
-import java.util.ResourceBundle;
 
 public class HomePage implements Initializable {
 

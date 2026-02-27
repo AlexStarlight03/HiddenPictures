@@ -1,5 +1,6 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.controller;
 
+import com.alexdube.hiddenpictures.HiddenObjectsApp;
 import com.alexdube.hiddenpictures.model.LeaderboardEntry;
 import com.alexdube.hiddenpictures.service.ApiService;
 import javafx.collections.FXCollections;
