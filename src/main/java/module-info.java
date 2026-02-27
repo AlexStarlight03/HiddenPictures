@@ -12,4 +12,6 @@ module com.alexdube.hiddenpictures {
     opens com.alexdube.hiddenpictures.model to javafx.fxml;
     exports com.alexdube.hiddenpictures.controller;
     opens com.alexdube.hiddenpictures.controller to javafx.fxml;
+    exports com.alexdube.hiddenpictures.util;
+    opens com.alexdube.hiddenpictures.util to javafx.fxml;
 }

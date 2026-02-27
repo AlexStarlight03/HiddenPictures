@@ -1,4 +1,4 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.controller;
 
 import com.alexdube.hiddenpictures.model.User;
 

@@ -43,7 +43,7 @@
                         <Insets bottom="10.0" left="28.0" right="28.0" top="10.0" />
                     </padding>
                 </Button>
-                <Button fx:id="backBtn" onAction="#handleBack" styleClass="menu-btn" text="Retour" textFill="WHITE">
+                <Button fx:id="backBtn" onAction="#handleReturn" styleClass="menu-btn" text="Retour" textFill="WHITE">
                     <font>
                         <Font name="Exo 2 Regular" size="18.0" />
                     </font>

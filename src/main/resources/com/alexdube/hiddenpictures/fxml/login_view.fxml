@@ -45,7 +45,7 @@
                 </Button>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                      <Button fx:id="backBtn" onAction="#handleBack" styleClass="menu-btn" text="Retour" textFill="WHITE">
+                      <Button fx:id="backBtn" onAction="#handleReturn" styleClass="menu-btn" text="Retour" textFill="WHITE">
                           <font>
                               <Font name="Exo 2 Regular" size="18.0" />
                           </font>
@@ -56,7 +56,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                       </Button>
-                      <Button fx:id="registerBtn" onAction="#handleInscription" styleClass="menu-btn" text="Inscription" textFill="WHITE">
+                      <Button fx:id="registerBtn" onAction="#switchRegister" styleClass="menu-btn" text="Inscription" textFill="WHITE">
                           <font>
                               <Font name="Exo 2 Regular" size="18.0" />
                           </font>

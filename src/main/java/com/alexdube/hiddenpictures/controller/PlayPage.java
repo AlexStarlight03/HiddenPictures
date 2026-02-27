@@ -1,11 +1,13 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.controller;
 
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import com.alexdube.hiddenpictures.controller.GameController;
+import com.alexdube.hiddenpictures.HiddenObjectsApp;
+import com.alexdube.hiddenpictures.util.Sparkle;
+import com.alexdube.hiddenpictures.service.ApiService;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
@@ -14,7 +16,6 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Glow;
@@ -99,6 +100,7 @@ public class PlayPage implements Initializable {
     }
 
     private void saveGameScore(boolean win) {
+        ApiService apiService = new ApiService();
         int foundPoints = (int) score * 10;
         int mistakePenalty = error * 5;
         int timeBonus = 0;
@@ -109,7 +111,7 @@ public class PlayPage implements Initializable {
         if (finalScore < 0) finalScore = 0;
 
        int userId = Session.getCurrentUser() != null ? Session.getCurrentUser().getId() : 0;
-       GameController.addGame(userId, finalScore);
+       apiService.addGame(userId, finalScore);
     }
 
     @FXML
@@ -121,7 +123,6 @@ public class PlayPage implements Initializable {
     public void handleRestart() {
         HiddenObjectsApp.switchPage("fxml/play_view.fxml");
     }
-
 
     private float score = 0;
 
@@ -218,8 +219,6 @@ public class PlayPage implements Initializable {
             showLoseMessage();
         }
     }
-
-    @FXML private Button home_btn;
 
     @FXML private void handleReturn() {
         HiddenObjectsApp.switchPage("fxml/home_view.fxml");

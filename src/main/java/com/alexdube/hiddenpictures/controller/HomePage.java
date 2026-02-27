@@ -1,5 +1,6 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.controller;
 
+import com.alexdube.hiddenpictures.HiddenObjectsApp;
 import com.alexdube.hiddenpictures.model.User;
 import com.alexdube.hiddenpictures.service.ApiService;
 import javafx.animation.FadeTransition;
@@ -13,19 +14,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import java.sql.*;
 
 public class HomePage implements Initializable {
 
     @FXML private VBox mainMenu;
     @FXML private ImageView kirakira;
     @FXML private Button play_btn;
-    @FXML private Button about_btn;
-    @FXML private Button creator_btn;
-    @FXML private Button leaderboard_btn;
+    @FXML private Button admin_btn;
     @FXML private Button profil_btn;
     @FXML private Button register_btn;
     @FXML private Button login_btn;
@@ -54,12 +50,14 @@ public class HomePage implements Initializable {
         pt.play();
 
         boolean loggedIn = Session.getCurrentUser() != null;
+        boolean isAdmin = loggedIn && Session.getCurrentUser().getIsAdmin();
         login_btn.setVisible(!loggedIn);
         register_btn.setVisible(!loggedIn);
         logout_btn.setVisible(loggedIn);
         profil_btn.setVisible(loggedIn);
-        play_btn.setVisible(loggedIn);
+        play_btn.setVisible(loggedIn && !isAdmin);
         userInfoLabel.setVisible(loggedIn);
+        admin_btn.setVisible(isAdmin);
 
         if (loggedIn) {
             User user = Session.getCurrentUser();
@@ -82,34 +80,31 @@ public class HomePage implements Initializable {
         }
     }
 
-    @FXML
-    private void handleLeaderboard() {
+    @FXML private void handleLeaderboard() {
         HiddenObjectsApp.switchPage("fxml/leaderboard_view.fxml");
     }
 
-    @FXML
-    private void handleAbout() {
+    @FXML private void handleAbout() {
         HiddenObjectsApp.switchPage("fxml/about_view.fxml");
     }
 
-    @FXML
-    private void handleCreator() {
+    @FXML private void handleCreator() {
         HiddenObjectsApp.switchPage("fxml/creator_view.fxml");
     }
 
-    @FXML
-    private void handleProfil() {
+    @FXML private void handleProfil() {
         HiddenObjectsApp.switchPage("fxml/profil_view.fxml");
     }
 
-    @FXML
-    private void handleRegister() { HiddenObjectsApp.switchPage("fxml/register_view.fxml");}
+    @FXML private void handleRegister() { HiddenObjectsApp.switchPage("fxml/register_view.fxml");}
 
-    @FXML
-    private void handleLogin() { HiddenObjectsApp.switchPage("fxml/login_view.fxml");}
+    @FXML private void handleLogin() { HiddenObjectsApp.switchPage("fxml/login_view.fxml");}
 
-    @FXML
-    private void handleLogout() {
+    @FXML private void handleAdmin() {
+        HiddenObjectsApp.switchPage("fxml/admin_view.fxml");
+    }
+
+    @FXML private void handleLogout() {
         Session.setCurrentUser(null);
         HiddenObjectsApp.switchPage("fxml/home_view.fxml");
     }

@@ -1,9 +1,7 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.util;
 
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
-import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.ImageView;
@@ -46,7 +44,6 @@ public class Sparkle {
         AnchorPane parent = (AnchorPane) foundImg.getParent();
 
         Bounds bounds = foundImg.localToScene(foundImg.getBoundsInLocal());
-        Point2D anchorTopLeft = parent.localToScene(0, 0);
         double centerX = bounds.getCenterX();
         double centerY = bounds.getCenterY();
 

@@ -1,12 +1,9 @@
-package com.alexdube.hiddenpictures;
+package com.alexdube.hiddenpictures.controller;
 
+import com.alexdube.hiddenpictures.HiddenObjectsApp;
 import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -28,10 +25,6 @@ public class CreatorPage implements Initializable {
 
         ft.play();
     }
-
-
-    @FXML
-    private Button home_btn;
 
     @FXML
     private void handleReturn() {

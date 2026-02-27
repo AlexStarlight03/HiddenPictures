@@ -1,20 +1,21 @@
 package com.alexdube.hiddenpictures.controller;
 
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ResourceBundle;
+
 import com.alexdube.hiddenpictures.HiddenObjectsApp;
-import com.alexdube.hiddenpictures.Session;
 import com.alexdube.hiddenpictures.model.User;
-import com.alexdube.hiddenpictures.service.ApiClient;
+import com.alexdube.hiddenpictures.service.ApiService;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-
-import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.*;
-import java.util.ResourceBundle;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class UserController implements Initializable {
     private final ObservableList<User> userList = FXCollections.observableArrayList();
@@ -22,6 +23,7 @@ public class UserController implements Initializable {
     @FXML private PasswordField passwordField;
     @FXML private Label messageLabel;
     @FXML private PasswordField confirmPasswordField;
+    ApiService apiService = new ApiService();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,52 +47,16 @@ public class UserController implements Initializable {
             messageLabel.setText("Les mots de passe ne correspondent pas.");
             return;
         }
-        String hashedPassword = hashPassword(password);
-
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        try (Connection conn = ApiClient.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, username);
-            stmt.setString(2, hashedPassword);
-            stmt.executeUpdate();
-
-            String sqlSelect = "SELECT * FROM users WHERE username = ?";
-            try (PreparedStatement stmtSelect = conn.prepareStatement(sqlSelect)) {
-                stmtSelect.setString(1, username);
-                ResultSet rs = stmtSelect.executeQuery();
-                if (rs.next()) {
-                    User user = new User(
-                            rs.getInt("id"),
-                            rs.getString("username"),
-                            rs.getString("password")
-                    );
-                    Session.setCurrentUser(user);
-                }
+        boolean success = apiService.createUser(username, password);
+        if (success) {
+            User user = apiService.getUserByUsername(username);
+            if (user != null) {
+                Session.setCurrentUser(user);
             }
             HiddenObjectsApp.switchPage("fxml/home_view.fxml");
-        } catch (SQLException e) {
+        } else {
             messageLabel.setVisible(true);
-            messageLabel.setText("Erreur: Ce nom d'utilisateur est deja prit!");
-        }
-    }
-
-    private void loadUsers() {
-        userList.clear();
-        String sql = "SELECT * FROM users";
-        try (Connection conn = ApiClient.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                User u = new User(
-                        rs.getInt("id"),
-                        rs.getString("username"),
-                        rs.getString("password")
-                );
-                userList.add(u);
-            }
-            System.out.println("* " + userList.size() + " utilisateurs chargés");
-        } catch (SQLException e) {
-            System.out.println("Erreur SQL : " + e.getMessage());
+            messageLabel.setText("Erreur : ce nom d'utilisateur est déjà pris!");
         }
     }
 
@@ -105,30 +71,13 @@ public class UserController implements Initializable {
             messageLabel.setText("Veuillez remplir tous les champs.");
             return;
         }
-        String hashedPassword = hashPassword(password);
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-        try (Connection conn = ApiClient.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-             stmt.setString(1, username);
-             stmt.setString(2, hashedPassword); // Hash in production!
-             ResultSet rs = stmt.executeQuery();
-             if (rs.next()) {
-                User user = new User(
-                        rs.getInt("id"),
-                        rs.getString("username"),
-                        rs.getString("password")
-                );
-                Session.setCurrentUser(user);
-                messageLabel.setVisible(true);
-                messageLabel.setText("Connexion réussie !");
-                HiddenObjectsApp.switchPage("fxml/home_view.fxml");
-             } else {
-                 messageLabel.setVisible(true);
-                 messageLabel.setText("Identifiants incorrects.");
-             }
-        } catch (SQLException e) {
+        User user = apiService.login(username, password);
+        if (user != null) {
+            Session.setCurrentUser(user);
+            HiddenObjectsApp.switchPage("fxml/home_view.fxml");
+        } else {
             messageLabel.setVisible(true);
-            messageLabel.setText("Erreur: " + e.getMessage());
+            messageLabel.setText("Identifiants incorrects.");
         }
     }
 
@@ -148,10 +97,13 @@ public class UserController implements Initializable {
     }
 
     @FXML
-    private void handleBack() {
+    private void handleReturn() {
         HiddenObjectsApp.switchPage("fxml/home_view.fxml");
     }
 
     @FXML
-    private void handleInscription() { HiddenObjectsApp.switchPage("fxml/register_view.fxml");}
+    private void switchRegister() {
+        HiddenObjectsApp.switchPage("fxml/register_view.fxml");
+    }
+
 }
